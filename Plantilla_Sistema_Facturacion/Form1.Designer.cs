@@ -90,6 +90,7 @@
             btnConfirm.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnConfirm.UseAccentColor = false;
             btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnConfirm_Click;
             // 
             // btnCancel
             // 
@@ -118,7 +119,7 @@
             txtUser.BackgroundImageLayout = ImageLayout.None;
             txtUser.CharacterCasing = CharacterCasing.Normal;
             txtUser.Depth = 0;
-            txtUser.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtUser.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             txtUser.HideSelection = true;
             txtUser.Hint = "Usuario";
             txtUser.LeadingIcon = null;
@@ -136,6 +137,7 @@
             txtUser.ShortcutsEnabled = true;
             txtUser.Size = new Size(261, 48);
             txtUser.TabIndex = 5;
+            txtUser.TabStop = false;
             txtUser.TextAlign = HorizontalAlignment.Center;
             txtUser.TrailingIcon = null;
             txtUser.UseSystemPasswordChar = false;

@@ -113,7 +113,7 @@ namespace Plantilla_Sistema_Facturacion
                         // Eliminar el cliente
                         var cliente = (Cliente)dgvClientList.Rows[e.RowIndex].DataBoundItem;
                         //EliminarCliente(cliente);
-                        MessageBox.Show("se burro el cliente");
+                        MessageBox.Show("se borro el cliente (la funcion de eliminar del archivo esta desactivada)");
                     }
                 }
             }
@@ -286,6 +286,8 @@ namespace Plantilla_Sistema_Facturacion
                 c.Nombre.ToLower().Contains(searchText) ||
                 c.DocumentoIdentidad.ToLower().Contains(searchText)).ToList();
         }
+
+
     }
 
     public class Cliente

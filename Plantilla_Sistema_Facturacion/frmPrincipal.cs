@@ -37,5 +37,59 @@ namespace Plantilla_Sistema_Facturacion
             this.pnlContainer.Controls.Add(formHijo);
             formHijo.Show();
         }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            frmProducts frmCliente = new frmProducts();
+            OpenForm(frmCliente);
+        }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            frmCategorias frmCategorias = new frmCategorias();
+            OpenForm(frmCategorias);
+        }
+
+        private void btnBills_Click(object sender, EventArgs e)
+        {
+            frmBillManager frmBillM = new frmBillManager();
+            OpenForm(frmBillM);
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            FrmInformes frmReports = new FrmInformes();
+            OpenForm(frmReports);
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            FrmEmployees frmEmployees = new FrmEmployees();
+            OpenForm(frmEmployees);
+        }
+
+        private void btnRoles_Click(object sender, EventArgs e)
+        {
+            FrmRoles frmRoles = new FrmRoles();
+            OpenForm(frmRoles);
+        }
+
+        private void btnSecurity_Click(object sender, EventArgs e)
+        {
+            FrmSistemUsers frmSecurity = new FrmSistemUsers();
+            OpenForm(frmSecurity);
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            FrmHelp frmHelp = new FrmHelp();
+            OpenForm(frmHelp);
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            FrmInfo frmInfo = new FrmInfo();
+            OpenForm(frmInfo);
+        }
     }
 }

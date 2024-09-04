@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Data\autenticacion.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\clientes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

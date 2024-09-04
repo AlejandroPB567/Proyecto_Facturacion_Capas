@@ -81,6 +81,9 @@
             // 
             // pnlContainer
             // 
+            pnlContainer.AutoScroll = true;
+            pnlContainer.AutoSize = true;
+            pnlContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(200, 0);
             pnlContainer.Name = "pnlContainer";
@@ -130,11 +133,11 @@
             btnLogout.FlatAppearance.BorderColor = Color.White;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatAppearance.MouseDownBackColor = Color.White;
-            btnLogout.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnLogout.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogout.Image = Properties.Resources.sign_out_alt;
-            btnLogout.Location = new Point(0, 299);
+            btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(192, 43);
             btnLogout.TabIndex = 2;
@@ -144,10 +147,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Dock = DockStyle.Bottom;
             pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(19, 418);
+            pictureBox1.Location = new Point(3, 421);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(144, 111);
+            pictureBox1.Size = new Size(186, 111);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -168,10 +172,11 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Dock = DockStyle.Bottom;
             pictureBox2.Image = Properties.Resources.logo;
-            pictureBox2.Location = new Point(20, 418);
+            pictureBox2.Location = new Point(3, 421);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(144, 111);
+            pictureBox2.Size = new Size(186, 111);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
@@ -181,11 +186,11 @@
             btnClients.FlatAppearance.BorderColor = Color.White;
             btnClients.FlatAppearance.BorderSize = 0;
             btnClients.FlatAppearance.MouseDownBackColor = Color.White;
-            btnClients.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnClients.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnClients.FlatStyle = FlatStyle.Flat;
             btnClients.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClients.Image = Properties.Resources.target_audience;
-            btnClients.Location = new Point(-1, 124);
+            btnClients.Location = new Point(0, 0);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(192, 43);
             btnClients.TabIndex = 5;
@@ -200,11 +205,11 @@
             btnProducts.FlatAppearance.BorderColor = Color.White;
             btnProducts.FlatAppearance.BorderSize = 0;
             btnProducts.FlatAppearance.MouseDownBackColor = Color.White;
-            btnProducts.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnProducts.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnProducts.FlatStyle = FlatStyle.Flat;
             btnProducts.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnProducts.Image = Properties.Resources.box_open;
-            btnProducts.Location = new Point(0, 173);
+            btnProducts.Location = new Point(0, 40);
             btnProducts.Name = "btnProducts";
             btnProducts.Size = new Size(192, 43);
             btnProducts.TabIndex = 4;
@@ -212,17 +217,18 @@
             btnProducts.TextAlign = ContentAlignment.MiddleLeft;
             btnProducts.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnCategories
             // 
             btnCategories.FlatAppearance.BorderColor = Color.White;
             btnCategories.FlatAppearance.BorderSize = 0;
             btnCategories.FlatAppearance.MouseDownBackColor = Color.White;
-            btnCategories.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnCategories.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnCategories.FlatStyle = FlatStyle.Flat;
             btnCategories.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCategories.Image = Properties.Resources.category;
-            btnCategories.Location = new Point(0, 222);
+            btnCategories.Location = new Point(1, 89);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(192, 43);
             btnCategories.TabIndex = 3;
@@ -230,6 +236,7 @@
             btnCategories.TextAlign = ContentAlignment.MiddleLeft;
             btnCategories.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCategories.UseVisualStyleBackColor = true;
+            btnCategories.Click += btnCategories_Click;
             // 
             // billing
             // 
@@ -248,11 +255,11 @@
             btnBills.FlatAppearance.BorderColor = Color.White;
             btnBills.FlatAppearance.BorderSize = 0;
             btnBills.FlatAppearance.MouseDownBackColor = Color.White;
-            btnBills.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnBills.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnBills.FlatStyle = FlatStyle.Flat;
             btnBills.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBills.Image = Properties.Resources.receipt;
-            btnBills.Location = new Point(-1, 124);
+            btnBills.Location = new Point(-1, 0);
             btnBills.Name = "btnBills";
             btnBills.Size = new Size(192, 43);
             btnBills.TabIndex = 7;
@@ -260,17 +267,18 @@
             btnBills.TextAlign = ContentAlignment.MiddleLeft;
             btnBills.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnBills.UseVisualStyleBackColor = true;
+            btnBills.Click += btnBills_Click;
             // 
             // btnReports
             // 
             btnReports.FlatAppearance.BorderColor = Color.White;
             btnReports.FlatAppearance.BorderSize = 0;
             btnReports.FlatAppearance.MouseDownBackColor = Color.White;
-            btnReports.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnReports.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnReports.FlatStyle = FlatStyle.Flat;
             btnReports.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnReports.Image = Properties.Resources.file_medical_alt;
-            btnReports.Location = new Point(-1, 173);
+            btnReports.Location = new Point(1, 49);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(192, 43);
             btnReports.TabIndex = 6;
@@ -278,13 +286,15 @@
             btnReports.TextAlign = ContentAlignment.MiddleLeft;
             btnReports.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // pictureBox3
             // 
+            pictureBox3.Dock = DockStyle.Bottom;
             pictureBox3.Image = Properties.Resources.logo;
-            pictureBox3.Location = new Point(20, 421);
+            pictureBox3.Location = new Point(0, 424);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(144, 111);
+            pictureBox3.Size = new Size(192, 111);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
@@ -307,11 +317,11 @@
             btnSecurity.FlatAppearance.BorderColor = Color.White;
             btnSecurity.FlatAppearance.BorderSize = 0;
             btnSecurity.FlatAppearance.MouseDownBackColor = Color.White;
-            btnSecurity.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnSecurity.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnSecurity.FlatStyle = FlatStyle.Flat;
             btnSecurity.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSecurity.Image = Properties.Resources.shield_keyhole;
-            btnSecurity.Location = new Point(0, 227);
+            btnSecurity.Location = new Point(0, 98);
             btnSecurity.Name = "btnSecurity";
             btnSecurity.Size = new Size(192, 43);
             btnSecurity.TabIndex = 8;
@@ -319,17 +329,18 @@
             btnSecurity.TextAlign = ContentAlignment.MiddleLeft;
             btnSecurity.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSecurity.UseVisualStyleBackColor = true;
+            btnSecurity.Click += btnSecurity_Click;
             // 
             // btnRoles
             // 
             btnRoles.FlatAppearance.BorderColor = Color.White;
             btnRoles.FlatAppearance.BorderSize = 0;
             btnRoles.FlatAppearance.MouseDownBackColor = Color.White;
-            btnRoles.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnRoles.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnRoles.FlatStyle = FlatStyle.Flat;
             btnRoles.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRoles.Image = Properties.Resources.dice_d8;
-            btnRoles.Location = new Point(-1, 178);
+            btnRoles.Location = new Point(0, 49);
             btnRoles.Name = "btnRoles";
             btnRoles.Size = new Size(192, 43);
             btnRoles.TabIndex = 7;
@@ -337,17 +348,18 @@
             btnRoles.TextAlign = ContentAlignment.MiddleLeft;
             btnRoles.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnRoles.UseVisualStyleBackColor = true;
+            btnRoles.Click += btnRoles_Click;
             // 
             // btnEmployees
             // 
             btnEmployees.FlatAppearance.BorderColor = Color.White;
             btnEmployees.FlatAppearance.BorderSize = 0;
             btnEmployees.FlatAppearance.MouseDownBackColor = Color.White;
-            btnEmployees.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnEmployees.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnEmployees.FlatStyle = FlatStyle.Flat;
             btnEmployees.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnEmployees.Image = Properties.Resources.employees_woman_man;
-            btnEmployees.Location = new Point(-1, 129);
+            btnEmployees.Location = new Point(0, 0);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(192, 43);
             btnEmployees.TabIndex = 6;
@@ -355,13 +367,15 @@
             btnEmployees.TextAlign = ContentAlignment.MiddleLeft;
             btnEmployees.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEmployees.UseVisualStyleBackColor = true;
+            btnEmployees.Click += btnEmployees_Click;
             // 
             // pictureBox5
             // 
+            pictureBox5.Dock = DockStyle.Bottom;
             pictureBox5.Image = Properties.Resources.logo;
-            pictureBox5.Location = new Point(19, 421);
+            pictureBox5.Location = new Point(0, 424);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(144, 111);
+            pictureBox5.Size = new Size(192, 111);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 2;
             pictureBox5.TabStop = false;
@@ -383,11 +397,11 @@
             btnInfo.FlatAppearance.BorderColor = Color.White;
             btnInfo.FlatAppearance.BorderSize = 0;
             btnInfo.FlatAppearance.MouseDownBackColor = Color.White;
-            btnInfo.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnInfo.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnInfo.FlatStyle = FlatStyle.Flat;
             btnInfo.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnInfo.Image = Properties.Resources.info;
-            btnInfo.Location = new Point(0, 178);
+            btnInfo.Location = new Point(0, 52);
             btnInfo.Name = "btnInfo";
             btnInfo.Size = new Size(192, 43);
             btnInfo.TabIndex = 7;
@@ -395,17 +409,18 @@
             btnInfo.TextAlign = ContentAlignment.MiddleLeft;
             btnInfo.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnInfo.UseVisualStyleBackColor = true;
+            btnInfo.Click += btnInfo_Click;
             // 
             // btnHelp
             // 
             btnHelp.FlatAppearance.BorderColor = Color.White;
             btnHelp.FlatAppearance.BorderSize = 0;
             btnHelp.FlatAppearance.MouseDownBackColor = Color.White;
-            btnHelp.FlatAppearance.MouseOverBackColor = Color.Black;
+            btnHelp.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnHelp.FlatStyle = FlatStyle.Flat;
             btnHelp.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHelp.Image = Properties.Resources.interrogation;
-            btnHelp.Location = new Point(0, 129);
+            btnHelp.Location = new Point(-1, 3);
             btnHelp.Name = "btnHelp";
             btnHelp.Size = new Size(192, 43);
             btnHelp.TabIndex = 6;
@@ -413,13 +428,15 @@
             btnHelp.TextAlign = ContentAlignment.MiddleLeft;
             btnHelp.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnHelp.UseVisualStyleBackColor = true;
+            btnHelp.Click += btnHelp_Click;
             // 
             // pictureBox4
             // 
+            pictureBox4.Dock = DockStyle.Bottom;
             pictureBox4.Image = Properties.Resources.logo;
-            pictureBox4.Location = new Point(19, 421);
+            pictureBox4.Location = new Point(0, 424);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(144, 111);
+            pictureBox4.Size = new Size(192, 111);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 2;
             pictureBox4.TabStop = false;
@@ -438,8 +455,8 @@
             // 
             // frmPrincipal
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Inherit;
+            AutoScroll = true;
             ClientSize = new Size(1200, 650);
             Controls.Add(tabSelectorMenu);
             Controls.Add(pnlPrincipal);
@@ -449,6 +466,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Sistema De Facturacion";
             pnlPrincipal.ResumeLayout(false);
+            pnlPrincipal.PerformLayout();
             panel1.ResumeLayout(false);
             tabControlMenu.ResumeLayout(false);
             principal.ResumeLayout(false);

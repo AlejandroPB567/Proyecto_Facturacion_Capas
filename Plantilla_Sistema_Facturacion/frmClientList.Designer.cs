@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnExit = new MaterialSkin.Controls.MaterialButton();
             btnClear = new MaterialSkin.Controls.MaterialButton();
             txtClientName = new MaterialSkin.Controls.MaterialTextBox2();
             btnCreateClient = new MaterialSkin.Controls.MaterialButton();
@@ -42,7 +43,6 @@
             dgvClientList = new DataGridView();
             txtFindClient = new MaterialSkin.Controls.MaterialTextBox2();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            btnExit = new MaterialSkin.Controls.MaterialButton();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientList).BeginInit();
@@ -50,6 +50,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnExit);
             groupBox1.Controls.Add(btnClear);
             groupBox1.Controls.Add(txtClientName);
             groupBox1.Controls.Add(btnCreateClient);
@@ -57,11 +58,33 @@
             groupBox1.Controls.Add(txtTelNum);
             groupBox1.Controls.Add(txtAddress);
             groupBox1.Controls.Add(txtClientId);
-            groupBox1.Location = new Point(44, 42);
+            groupBox1.Location = new Point(6, 32);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(846, 362);
+            groupBox1.Size = new Size(785, 332);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // btnExit
+            // 
+            btnExit.AutoSize = false;
+            btnExit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnExit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnExit.Depth = 0;
+            btnExit.ForeColor = SystemColors.ControlDark;
+            btnExit.HighEmphasis = true;
+            btnExit.Icon = null;
+            btnExit.Location = new Point(602, 258);
+            btnExit.Margin = new Padding(4, 6, 4, 6);
+            btnExit.MouseState = MaterialSkin.MouseState.HOVER;
+            btnExit.Name = "btnExit";
+            btnExit.NoAccentTextColor = Color.Empty;
+            btnExit.Size = new Size(94, 36);
+            btnExit.TabIndex = 5;
+            btnExit.Text = "Salir";
+            btnExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnExit.UseAccentColor = false;
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
             // btnClear
             // 
@@ -72,12 +95,12 @@
             btnClear.ForeColor = SystemColors.ControlDark;
             btnClear.HighEmphasis = true;
             btnClear.Icon = null;
-            btnClear.Location = new Point(666, 70);
+            btnClear.Location = new Point(602, 70);
             btnClear.Margin = new Padding(4, 6, 4, 6);
             btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             btnClear.Name = "btnClear";
             btnClear.NoAccentTextColor = Color.Empty;
-            btnClear.Size = new Size(158, 36);
+            btnClear.Size = new Size(97, 36);
             btnClear.TabIndex = 6;
             btnClear.Text = "Limpiar";
             btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -123,12 +146,12 @@
             btnCreateClient.ForeColor = SystemColors.ControlDark;
             btnCreateClient.HighEmphasis = true;
             btnCreateClient.Icon = null;
-            btnCreateClient.Location = new Point(666, 22);
+            btnCreateClient.Location = new Point(602, 22);
             btnCreateClient.Margin = new Padding(4, 6, 4, 6);
             btnCreateClient.MouseState = MaterialSkin.MouseState.HOVER;
             btnCreateClient.Name = "btnCreateClient";
             btnCreateClient.NoAccentTextColor = Color.Empty;
-            btnCreateClient.Size = new Size(158, 36);
+            btnCreateClient.Size = new Size(97, 36);
             btnCreateClient.TabIndex = 3;
             btnCreateClient.Text = "Agregar";
             btnCreateClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -146,7 +169,7 @@
             txtEmail.HideSelection = true;
             txtEmail.Hint = "E-mail";
             txtEmail.LeadingIcon = null;
-            txtEmail.Location = new Point(58, 296);
+            txtEmail.Location = new Point(58, 234);
             txtEmail.MaxLength = 32767;
             txtEmail.MouseState = MaterialSkin.MouseState.OUT;
             txtEmail.Name = "txtEmail";
@@ -175,7 +198,7 @@
             txtTelNum.HideSelection = true;
             txtTelNum.Hint = "Telefono";
             txtTelNum.LeadingIcon = null;
-            txtTelNum.Location = new Point(58, 228);
+            txtTelNum.Location = new Point(58, 180);
             txtTelNum.MaxLength = 32767;
             txtTelNum.MouseState = MaterialSkin.MouseState.OUT;
             txtTelNum.Name = "txtTelNum";
@@ -204,7 +227,7 @@
             txtAddress.HideSelection = true;
             txtAddress.Hint = "Direccion";
             txtAddress.LeadingIcon = null;
-            txtAddress.Location = new Point(58, 160);
+            txtAddress.Location = new Point(58, 128);
             txtAddress.Margin = new Padding(1);
             txtAddress.MaxLength = 32767;
             txtAddress.MouseState = MaterialSkin.MouseState.OUT;
@@ -234,7 +257,7 @@
             txtClientId.HideSelection = true;
             txtClientId.Hint = "Documento";
             txtClientId.LeadingIcon = null;
-            txtClientId.Location = new Point(58, 91);
+            txtClientId.Location = new Point(58, 76);
             txtClientId.MaxLength = 32767;
             txtClientId.MouseState = MaterialSkin.MouseState.OUT;
             txtClientId.Name = "txtClientId";
@@ -259,9 +282,9 @@
             groupBox2.Controls.Add(btnSearch);
             groupBox2.Controls.Add(dgvClientList);
             groupBox2.Controls.Add(txtFindClient);
-            groupBox2.Location = new Point(44, 435);
+            groupBox2.Location = new Point(6, 370);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1069, 244);
+            groupBox2.Size = new Size(785, 215);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
@@ -272,7 +295,7 @@
             btnRecharge.Depth = 0;
             btnRecharge.HighEmphasis = true;
             btnRecharge.Icon = null;
-            btnRecharge.Location = new Point(701, 25);
+            btnRecharge.Location = new Point(471, 34);
             btnRecharge.Margin = new Padding(4, 6, 4, 6);
             btnRecharge.MouseState = MaterialSkin.MouseState.HOVER;
             btnRecharge.Name = "btnRecharge";
@@ -292,7 +315,7 @@
             btnSearch.Depth = 0;
             btnSearch.HighEmphasis = true;
             btnSearch.Icon = null;
-            btnSearch.Location = new Point(575, 25);
+            btnSearch.Location = new Point(376, 34);
             btnSearch.Margin = new Padding(4, 6, 4, 6);
             btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             btnSearch.Name = "btnSearch";
@@ -308,9 +331,9 @@
             // dgvClientList
             // 
             dgvClientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientList.Location = new Point(32, 100);
+            dgvClientList.Location = new Point(32, 79);
             dgvClientList.Name = "dgvClientList";
-            dgvClientList.Size = new Size(999, 118);
+            dgvClientList.Size = new Size(667, 118);
             dgvClientList.TabIndex = 3;
             // 
             // txtFindClient
@@ -335,7 +358,7 @@
             txtFindClient.SelectionLength = 0;
             txtFindClient.SelectionStart = 0;
             txtFindClient.ShortcutsEnabled = true;
-            txtFindClient.Size = new Size(520, 48);
+            txtFindClient.Size = new Size(276, 48);
             txtFindClient.TabIndex = 2;
             txtFindClient.TabStop = false;
             txtFindClient.TextAlign = HorizontalAlignment.Left;
@@ -347,42 +370,19 @@
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(388, 11);
+            materialLabel1.Location = new Point(281, 10);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(189, 19);
             materialLabel1.TabIndex = 2;
             materialLabel1.Text = "Administracion de Clientes";
             // 
-            // btnExit
-            // 
-            btnExit.AutoSize = false;
-            btnExit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnExit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnExit.Depth = 0;
-            btnExit.ForeColor = SystemColors.ControlDark;
-            btnExit.HighEmphasis = true;
-            btnExit.Icon = null;
-            btnExit.Location = new Point(992, 368);
-            btnExit.Margin = new Padding(4, 6, 4, 6);
-            btnExit.MouseState = MaterialSkin.MouseState.HOVER;
-            btnExit.Name = "btnExit";
-            btnExit.NoAccentTextColor = Color.Empty;
-            btnExit.Size = new Size(94, 36);
-            btnExit.TabIndex = 5;
-            btnExit.Text = "Salir";
-            btnExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnExit.UseAccentColor = false;
-            btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += btnExit_Click;
-            // 
             // frmClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1160, 726);
-            Controls.Add(btnExit);
+            ClientSize = new Size(794, 585);
             Controls.Add(materialLabel1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);

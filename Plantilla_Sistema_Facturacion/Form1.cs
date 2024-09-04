@@ -14,9 +14,9 @@ namespace Plantilla_Sistema_Facturacion
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            FrmPrincipal frmppal = new FrmPrincipal();
+            frmPrincipal frmppal = new frmPrincipal();
             this.Hide(); // Ocultamos el formulario login
-            frmPrincipal.Show();
+            frmppal.Show();
         }
     }
 }

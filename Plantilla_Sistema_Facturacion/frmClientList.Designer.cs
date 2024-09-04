@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnClear = new MaterialSkin.Controls.MaterialButton();
             txtClientName = new MaterialSkin.Controls.MaterialTextBox2();
+            btnCreateClient = new MaterialSkin.Controls.MaterialButton();
             txtEmail = new MaterialSkin.Controls.MaterialTextBox2();
             txtTelNum = new MaterialSkin.Controls.MaterialTextBox2();
             txtAddress = new MaterialSkin.Controls.MaterialTextBox2();
             txtClientId = new MaterialSkin.Controls.MaterialTextBox2();
             groupBox2 = new GroupBox();
-            txtFindClient = new MaterialSkin.Controls.MaterialTextBox2();
-            dgvClientList = new DataGridView();
-            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            btnCreateClient = new MaterialSkin.Controls.MaterialButton();
+            btnRecharge = new MaterialSkin.Controls.MaterialButton();
             btnSearch = new MaterialSkin.Controls.MaterialButton();
+            dgvClientList = new DataGridView();
+            txtFindClient = new MaterialSkin.Controls.MaterialTextBox2();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             btnExit = new MaterialSkin.Controls.MaterialButton();
-            btnUpdateClient = new MaterialSkin.Controls.MaterialButton();
-            btnDeleteClient = new MaterialSkin.Controls.MaterialButton();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientList).BeginInit();
@@ -50,7 +50,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnClear);
             groupBox1.Controls.Add(txtClientName);
+            groupBox1.Controls.Add(btnCreateClient);
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(txtTelNum);
             groupBox1.Controls.Add(txtAddress);
@@ -60,6 +62,28 @@
             groupBox1.Size = new Size(846, 362);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // btnClear
+            // 
+            btnClear.AutoSize = false;
+            btnClear.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnClear.Depth = 0;
+            btnClear.ForeColor = SystemColors.ControlDark;
+            btnClear.HighEmphasis = true;
+            btnClear.Icon = null;
+            btnClear.Location = new Point(666, 70);
+            btnClear.Margin = new Padding(4, 6, 4, 6);
+            btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            btnClear.Name = "btnClear";
+            btnClear.NoAccentTextColor = Color.Empty;
+            btnClear.Size = new Size(158, 36);
+            btnClear.TabIndex = 6;
+            btnClear.Text = "Limpiar";
+            btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnClear.UseAccentColor = false;
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // txtClientName
             // 
@@ -89,6 +113,28 @@
             txtClientName.TextAlign = HorizontalAlignment.Left;
             txtClientName.TrailingIcon = null;
             txtClientName.UseSystemPasswordChar = false;
+            // 
+            // btnCreateClient
+            // 
+            btnCreateClient.AutoSize = false;
+            btnCreateClient.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCreateClient.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCreateClient.Depth = 0;
+            btnCreateClient.ForeColor = SystemColors.ControlDark;
+            btnCreateClient.HighEmphasis = true;
+            btnCreateClient.Icon = null;
+            btnCreateClient.Location = new Point(666, 22);
+            btnCreateClient.Margin = new Padding(4, 6, 4, 6);
+            btnCreateClient.MouseState = MaterialSkin.MouseState.HOVER;
+            btnCreateClient.Name = "btnCreateClient";
+            btnCreateClient.NoAccentTextColor = Color.Empty;
+            btnCreateClient.Size = new Size(158, 36);
+            btnCreateClient.TabIndex = 3;
+            btnCreateClient.Text = "Agregar";
+            btnCreateClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCreateClient.UseAccentColor = false;
+            btnCreateClient.UseVisualStyleBackColor = true;
+            btnCreateClient.Click += btnCreateClient_Click;
             // 
             // txtEmail
             // 
@@ -209,6 +255,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnRecharge);
             groupBox2.Controls.Add(btnSearch);
             groupBox2.Controls.Add(dgvClientList);
             groupBox2.Controls.Add(txtFindClient);
@@ -217,6 +264,54 @@
             groupBox2.Size = new Size(1069, 244);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
+            // 
+            // btnRecharge
+            // 
+            btnRecharge.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnRecharge.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnRecharge.Depth = 0;
+            btnRecharge.HighEmphasis = true;
+            btnRecharge.Icon = null;
+            btnRecharge.Location = new Point(701, 25);
+            btnRecharge.Margin = new Padding(4, 6, 4, 6);
+            btnRecharge.MouseState = MaterialSkin.MouseState.HOVER;
+            btnRecharge.Name = "btnRecharge";
+            btnRecharge.NoAccentTextColor = Color.Empty;
+            btnRecharge.Size = new Size(96, 36);
+            btnRecharge.TabIndex = 5;
+            btnRecharge.Text = "Recargar";
+            btnRecharge.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnRecharge.UseAccentColor = false;
+            btnRecharge.UseVisualStyleBackColor = true;
+            btnRecharge.Click += btnRecharge_Click;
+            // 
+            // btnSearch
+            // 
+            btnSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnSearch.Depth = 0;
+            btnSearch.HighEmphasis = true;
+            btnSearch.Icon = null;
+            btnSearch.Location = new Point(575, 25);
+            btnSearch.Margin = new Padding(4, 6, 4, 6);
+            btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            btnSearch.Name = "btnSearch";
+            btnSearch.NoAccentTextColor = Color.Empty;
+            btnSearch.Size = new Size(77, 36);
+            btnSearch.TabIndex = 4;
+            btnSearch.Text = "Buscar";
+            btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnSearch.UseAccentColor = false;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // dgvClientList
+            // 
+            dgvClientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientList.Location = new Point(32, 100);
+            dgvClientList.Name = "dgvClientList";
+            dgvClientList.Size = new Size(999, 118);
+            dgvClientList.TabIndex = 3;
             // 
             // txtFindClient
             // 
@@ -247,14 +342,6 @@
             txtFindClient.TrailingIcon = null;
             txtFindClient.UseSystemPasswordChar = false;
             // 
-            // dgvClientList
-            // 
-            dgvClientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientList.Location = new Point(32, 100);
-            dgvClientList.Name = "dgvClientList";
-            dgvClientList.Size = new Size(999, 118);
-            dgvClientList.TabIndex = 3;
-            // 
             // materialLabel1
             // 
             materialLabel1.AutoSize = true;
@@ -266,46 +353,6 @@
             materialLabel1.Size = new Size(189, 19);
             materialLabel1.TabIndex = 2;
             materialLabel1.Text = "Administracion de Clientes";
-            // 
-            // btnCreateClient
-            // 
-            btnCreateClient.AutoSize = false;
-            btnCreateClient.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCreateClient.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnCreateClient.Depth = 0;
-            btnCreateClient.ForeColor = SystemColors.ControlDark;
-            btnCreateClient.HighEmphasis = true;
-            btnCreateClient.Icon = null;
-            btnCreateClient.Location = new Point(955, 42);
-            btnCreateClient.Margin = new Padding(4, 6, 4, 6);
-            btnCreateClient.MouseState = MaterialSkin.MouseState.HOVER;
-            btnCreateClient.Name = "btnCreateClient";
-            btnCreateClient.NoAccentTextColor = Color.Empty;
-            btnCreateClient.Size = new Size(158, 36);
-            btnCreateClient.TabIndex = 3;
-            btnCreateClient.Text = "Agregar";
-            btnCreateClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnCreateClient.UseAccentColor = false;
-            btnCreateClient.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            btnSearch.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnSearch.Depth = 0;
-            btnSearch.HighEmphasis = true;
-            btnSearch.Icon = null;
-            btnSearch.Location = new Point(575, 25);
-            btnSearch.Margin = new Padding(4, 6, 4, 6);
-            btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
-            btnSearch.Name = "btnSearch";
-            btnSearch.NoAccentTextColor = Color.Empty;
-            btnSearch.Size = new Size(77, 36);
-            btnSearch.TabIndex = 4;
-            btnSearch.Text = "Buscar";
-            btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnSearch.UseAccentColor = false;
-            btnSearch.UseVisualStyleBackColor = true;
             // 
             // btnExit
             // 
@@ -329,58 +376,13 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += btnExit_Click;
             // 
-            // btnUpdateClient
-            // 
-            btnUpdateClient.AutoSize = false;
-            btnUpdateClient.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnUpdateClient.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnUpdateClient.Depth = 0;
-            btnUpdateClient.ForeColor = SystemColors.ControlDark;
-            btnUpdateClient.HighEmphasis = true;
-            btnUpdateClient.Icon = null;
-            btnUpdateClient.Location = new Point(955, 90);
-            btnUpdateClient.Margin = new Padding(4, 6, 4, 6);
-            btnUpdateClient.MouseState = MaterialSkin.MouseState.HOVER;
-            btnUpdateClient.Name = "btnUpdateClient";
-            btnUpdateClient.NoAccentTextColor = Color.Empty;
-            btnUpdateClient.Size = new Size(158, 36);
-            btnUpdateClient.TabIndex = 6;
-            btnUpdateClient.Text = "Actualizar";
-            btnUpdateClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnUpdateClient.UseAccentColor = false;
-            btnUpdateClient.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteClient
-            // 
-            btnDeleteClient.AutoSize = false;
-            btnDeleteClient.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnDeleteClient.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnDeleteClient.Depth = 0;
-            btnDeleteClient.ForeColor = SystemColors.ControlDark;
-            btnDeleteClient.HighEmphasis = true;
-            btnDeleteClient.Icon = null;
-            btnDeleteClient.Location = new Point(955, 145);
-            btnDeleteClient.Margin = new Padding(4, 6, 4, 6);
-            btnDeleteClient.MouseState = MaterialSkin.MouseState.HOVER;
-            btnDeleteClient.Name = "btnDeleteClient";
-            btnDeleteClient.NoAccentTextColor = Color.Empty;
-            btnDeleteClient.Size = new Size(158, 36);
-            btnDeleteClient.TabIndex = 7;
-            btnDeleteClient.Text = "Eliminar";
-            btnDeleteClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnDeleteClient.UseAccentColor = false;
-            btnDeleteClient.UseVisualStyleBackColor = true;
-            // 
             // frmClient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(1160, 726);
-            Controls.Add(btnDeleteClient);
-            Controls.Add(btnUpdateClient);
             Controls.Add(btnExit);
-            Controls.Add(btnCreateClient);
             Controls.Add(materialLabel1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -411,7 +413,7 @@
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialButton btnCreateClient;
         private MaterialSkin.Controls.MaterialButton btnExit;
-        private MaterialSkin.Controls.MaterialButton btnUpdateClient;
-        private MaterialSkin.Controls.MaterialButton btnDeleteClient;
+        private MaterialSkin.Controls.MaterialButton btnRecharge;
+        private MaterialSkin.Controls.MaterialButton btnClear;
     }
 }

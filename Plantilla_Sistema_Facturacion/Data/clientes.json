@@ -1,0 +1,43 @@
+[
+  {
+    "IDCliente": 1,
+    "Nombre": "Juan Pérez",
+    "DocumentoIdentidad": "12345678",
+    "Direccion": "Av. Principal 123",
+    "Telefono": "555-1234",
+    "Email": "juan.perez@example.com"
+  },
+  {
+    "IDCliente": 2,
+    "Nombre": "Ana Gómez",
+    "DocumentoIdentidad": "87654321",
+    "Direccion": "Calle Secundaria 456",
+    "Telefono": "555-5678",
+    "Email": "ana.gomez@example.com"
+  },
+  {
+    "IDCliente": 3,
+    "Nombre": "Carlos Martínez",
+    "DocumentoIdentidad": "11223344",
+    "Direccion": "Avenida Central 789",
+    "Telefono": "555-9876",
+    "Email": "carlos.martinez@example.com"
+  },
+  {
+    "IDCliente": 4,
+    "Nombre": "María López",
+    "DocumentoIdentidad": "55667788",
+    "Direccion": "Calle Tercera 101",
+    "Telefono": "555-3456",
+    "Email": "maria.lopez@example.com"
+  },
+  {
+    "IDCliente": 5,
+    "Nombre": "Pedro Fernández",
+    "DocumentoIdentidad": "99887766",
+    "Direccion": "Plaza Cuarta 202",
+    "Telefono": "555-6789",
+    "Email": "pedro.fernandez@example.com"
+  }
+]
+

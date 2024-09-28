@@ -51,7 +51,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.user_unlock1;
+            pictureBox1.Image = Capa_Presentacion.Properties.Resources.user_unlock1;
             pictureBox1.Location = new Point(22, 53);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(161, 143);

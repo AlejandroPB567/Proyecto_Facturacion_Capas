@@ -136,7 +136,7 @@
             btnLogout.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogout.Image = Properties.Resources.sign_out_alt;
+///            btnLogout.Image = Properties.Resources.sign_out_alt;
             btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(192, 43);
@@ -148,7 +148,7 @@
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Bottom;
-            pictureBox1.Image = Properties.Resources.logo;
+ //           pictureBox1.Image = Properties.Resources.logo;
             pictureBox1.Location = new Point(3, 421);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(186, 111);
@@ -173,7 +173,7 @@
             // pictureBox2
             // 
             pictureBox2.Dock = DockStyle.Bottom;
-            pictureBox2.Image = Properties.Resources.logo;
+//            pictureBox2.Image = Properties.Resources.logo;
             pictureBox2.Location = new Point(3, 421);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(186, 111);
@@ -189,7 +189,7 @@
             btnClients.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnClients.FlatStyle = FlatStyle.Flat;
             btnClients.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClients.Image = Properties.Resources.target_audience;
+//            btnClients.Image = Properties.Resources.target_audience;
             btnClients.Location = new Point(0, 0);
             btnClients.Name = "btnClients";
             btnClients.Size = new Size(192, 43);
@@ -208,7 +208,7 @@
             btnProducts.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnProducts.FlatStyle = FlatStyle.Flat;
             btnProducts.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnProducts.Image = Properties.Resources.box_open;
+ //           btnProducts.Image = Properties.Resources.box_open;
             btnProducts.Location = new Point(0, 40);
             btnProducts.Name = "btnProducts";
             btnProducts.Size = new Size(192, 43);
@@ -227,7 +227,7 @@
             btnCategories.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnCategories.FlatStyle = FlatStyle.Flat;
             btnCategories.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnCategories.Image = Properties.Resources.category;
+ //           btnCategories.Image = Properties.Resources.category;
             btnCategories.Location = new Point(1, 89);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(192, 43);
@@ -258,7 +258,7 @@
             btnBills.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnBills.FlatStyle = FlatStyle.Flat;
             btnBills.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBills.Image = Properties.Resources.receipt;
+ //           btnBills.Image = Properties.Resources.receipt;
             btnBills.Location = new Point(-1, 0);
             btnBills.Name = "btnBills";
             btnBills.Size = new Size(192, 43);
@@ -277,7 +277,7 @@
             btnReports.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnReports.FlatStyle = FlatStyle.Flat;
             btnReports.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnReports.Image = Properties.Resources.file_medical_alt;
+//            btnReports.Image = Properties.Resources.file_medical_alt;
             btnReports.Location = new Point(1, 49);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(192, 43);
@@ -291,7 +291,7 @@
             // pictureBox3
             // 
             pictureBox3.Dock = DockStyle.Bottom;
-            pictureBox3.Image = Properties.Resources.logo;
+  //          pictureBox3.Image = Properties.Resources.logo;
             pictureBox3.Location = new Point(0, 424);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(192, 111);
@@ -320,7 +320,7 @@
             btnSecurity.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnSecurity.FlatStyle = FlatStyle.Flat;
             btnSecurity.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSecurity.Image = Properties.Resources.shield_keyhole;
+  //          btnSecurity.Image = Properties.Resources.shield_keyhole;
             btnSecurity.Location = new Point(0, 98);
             btnSecurity.Name = "btnSecurity";
             btnSecurity.Size = new Size(192, 43);
@@ -339,7 +339,7 @@
             btnRoles.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnRoles.FlatStyle = FlatStyle.Flat;
             btnRoles.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnRoles.Image = Properties.Resources.dice_d8;
+ //           btnRoles.Image = Properties.Resources.dice_d8;
             btnRoles.Location = new Point(0, 49);
             btnRoles.Name = "btnRoles";
             btnRoles.Size = new Size(192, 43);
@@ -358,7 +358,7 @@
             btnEmployees.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnEmployees.FlatStyle = FlatStyle.Flat;
             btnEmployees.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEmployees.Image = Properties.Resources.employees_woman_man;
+ //           btnEmployees.Image = Properties.Resources.employees_woman_man;
             btnEmployees.Location = new Point(0, 0);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(192, 43);
@@ -372,7 +372,7 @@
             // pictureBox5
             // 
             pictureBox5.Dock = DockStyle.Bottom;
-            pictureBox5.Image = Properties.Resources.logo;
+//            pictureBox5.Image = Properties.Resources.logo;
             pictureBox5.Location = new Point(0, 424);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(192, 111);
@@ -400,7 +400,7 @@
             btnInfo.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnInfo.FlatStyle = FlatStyle.Flat;
             btnInfo.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnInfo.Image = Properties.Resources.info;
+//            btnInfo.Image = Properties.Resources.info;
             btnInfo.Location = new Point(0, 52);
             btnInfo.Name = "btnInfo";
             btnInfo.Size = new Size(192, 43);
@@ -419,7 +419,7 @@
             btnHelp.FlatAppearance.MouseOverBackColor = Color.DarkTurquoise;
             btnHelp.FlatStyle = FlatStyle.Flat;
             btnHelp.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnHelp.Image = Properties.Resources.interrogation;
+//            btnHelp.Image = Properties.Resources.interrogation;
             btnHelp.Location = new Point(-1, 3);
             btnHelp.Name = "btnHelp";
             btnHelp.Size = new Size(192, 43);
@@ -433,7 +433,7 @@
             // pictureBox4
             // 
             pictureBox4.Dock = DockStyle.Bottom;
-            pictureBox4.Image = Properties.Resources.logo;
+  //          pictureBox4.Image = Properties.Resources.logo;
             pictureBox4.Location = new Point(0, 424);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(192, 111);

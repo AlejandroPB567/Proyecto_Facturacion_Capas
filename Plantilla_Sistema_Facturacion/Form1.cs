@@ -27,6 +27,10 @@ namespace Plantilla_Sistema_Facturacion
                 objValidar.ValidateUser();
                 if (objValidar.IdEmpleado != 0 )
                 {
+                    // Almacena el usuario autenticado
+                    UsuarioAutenticado.Usuario = objValidar.StrUsuario;
+                    UsuarioAutenticado.IdEmpleado = objValidar.IdEmpleado;
+
                     MessageBox.Show("Datos validos");
                     frmPrincipal frm = new frmPrincipal();
                     this.Hide();

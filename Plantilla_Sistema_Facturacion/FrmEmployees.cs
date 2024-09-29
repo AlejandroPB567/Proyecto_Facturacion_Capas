@@ -14,6 +14,7 @@ namespace Plantilla_Sistema_Facturacion
 {
     public partial class FrmEmployees : MaterialForm
     {
+        private int IdActual;
         public FrmEmployees()
         {
             InitializeComponent();
@@ -156,6 +157,7 @@ namespace Plantilla_Sistema_Facturacion
         }
         private void LlenarCamposDesdeFila(DataGridViewRow fila)
         {
+            IdActual = (int)fila.Cells["IdEmpleado"].Value;
             txtNomEmpleado.Text = fila.Cells["strNombre"].Value.ToString();
             txtDocEmpleado.Text = fila.Cells["NumDocumento"].Value.ToString();
             txtDireccion.Text = fila.Cells["StrDireccion"].Value.ToString();
@@ -176,7 +178,7 @@ namespace Plantilla_Sistema_Facturacion
                 // Crear la instancia de la clase Cls_Empleados con los datos de los campos del formulario
                 Cls_Empleados empleado = new Cls_Empleados
                 {
-                    IdEmpleado = Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells["IdEmpleado"].Value),
+                    IdEmpleado = IdActual,
                     StrNombre = txtNomEmpleado.Text,
                     NumDocumento = Convert.ToDouble(txtDocEmpleado.Text),
                     StrDireccion = txtDireccion.Text,

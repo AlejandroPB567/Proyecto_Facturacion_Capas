@@ -114,6 +114,29 @@ namespace Capa_AccesoDatos
                 throw new Exception("Error al ejecutar el procedimiento almacenado.", ex);
             }
         }
+        public string EjecutarComando(string comando, List<Cls_parametros> parametros)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand(comando, _conn))
+                {
+                    if (parametros != null)
+                    {
+                        foreach (var param in parametros)
+                        {
+                            command.Parameters.AddWithValue(param.nombre, param.valor);
+                        }
+                    }
+
+                    int retornado = command.ExecuteNonQuery();
+                    return retornado > 0 ? "Se actualizó" : "No se actualizó";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al ejecutar el comando.", ex);
+            }
+        }
     }
 
     public class Cls_parametros

@@ -31,11 +31,12 @@
             materialButton2 = new MaterialSkin.Controls.MaterialButton();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             groupBox1 = new GroupBox();
-            txtCatName = new MaterialSkin.Controls.MaterialTextBox2();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            dgvClientList = new DataGridView();
+            txtRolName = new MaterialSkin.Controls.MaterialTextBox2();
+            btnAddRol = new MaterialSkin.Controls.MaterialButton();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            txtDetails = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientList).BeginInit();
             SuspendLayout();
             // 
             // materialButton2
@@ -71,10 +72,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dgvClientList);
             groupBox1.Controls.Add(materialButton2);
-            groupBox1.Controls.Add(txtDetails);
-            groupBox1.Controls.Add(txtCatName);
-            groupBox1.Controls.Add(materialButton1);
+            groupBox1.Controls.Add(txtRolName);
+            groupBox1.Controls.Add(btnAddRol);
             groupBox1.Controls.Add(materialLabel2);
             groupBox1.Location = new Point(15, 38);
             groupBox1.Name = "groupBox1";
@@ -82,53 +83,63 @@
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             // 
-            // txtCatName
+            // dgvClientList
             // 
-            txtCatName.AnimateReadOnly = false;
-            txtCatName.BackgroundImageLayout = ImageLayout.None;
-            txtCatName.CharacterCasing = CharacterCasing.Normal;
-            txtCatName.Depth = 0;
-            txtCatName.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtCatName.HideSelection = true;
-            txtCatName.Hint = "Nombre Rol";
-            txtCatName.LeadingIcon = null;
-            txtCatName.Location = new Point(19, 19);
-            txtCatName.MaxLength = 32767;
-            txtCatName.MouseState = MaterialSkin.MouseState.OUT;
-            txtCatName.Name = "txtCatName";
-            txtCatName.PasswordChar = '\0';
-            txtCatName.PrefixSuffixText = null;
-            txtCatName.ReadOnly = false;
-            txtCatName.RightToLeft = RightToLeft.No;
-            txtCatName.SelectedText = "";
-            txtCatName.SelectionLength = 0;
-            txtCatName.SelectionStart = 0;
-            txtCatName.ShortcutsEnabled = true;
-            txtCatName.Size = new Size(250, 48);
-            txtCatName.TabIndex = 1;
-            txtCatName.TabStop = false;
-            txtCatName.TextAlign = HorizontalAlignment.Left;
-            txtCatName.TrailingIcon = null;
-            txtCatName.UseSystemPasswordChar = false;
+            dgvClientList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientList.Location = new Point(19, 119);
+            dgvClientList.Name = "dgvClientList";
+            dgvClientList.Size = new Size(428, 128);
+            dgvClientList.TabIndex = 15;
+            dgvClientList.CellContentClick += dgvClientList_CellContentClick;
             // 
-            // materialButton1
+            // txtRolName
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(662, 25);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(88, 36);
-            materialButton1.TabIndex = 7;
-            materialButton1.Text = "Agregar";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            txtRolName.AnimateReadOnly = false;
+            txtRolName.BackgroundImageLayout = ImageLayout.None;
+            txtRolName.CharacterCasing = CharacterCasing.Normal;
+            txtRolName.Depth = 0;
+            txtRolName.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtRolName.HideSelection = true;
+            txtRolName.Hint = "Nombre Rol";
+            txtRolName.LeadingIcon = null;
+            txtRolName.Location = new Point(19, 19);
+            txtRolName.MaxLength = 32767;
+            txtRolName.MouseState = MaterialSkin.MouseState.OUT;
+            txtRolName.Name = "txtRolName";
+            txtRolName.PasswordChar = '\0';
+            txtRolName.PrefixSuffixText = null;
+            txtRolName.ReadOnly = false;
+            txtRolName.RightToLeft = RightToLeft.No;
+            txtRolName.SelectedText = "";
+            txtRolName.SelectionLength = 0;
+            txtRolName.SelectionStart = 0;
+            txtRolName.ShortcutsEnabled = true;
+            txtRolName.Size = new Size(250, 48);
+            txtRolName.TabIndex = 1;
+            txtRolName.TabStop = false;
+            txtRolName.TextAlign = HorizontalAlignment.Left;
+            txtRolName.TrailingIcon = null;
+            txtRolName.UseSystemPasswordChar = false;
+            // 
+            // btnAddRol
+            // 
+            btnAddRol.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnAddRol.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAddRol.Depth = 0;
+            btnAddRol.HighEmphasis = true;
+            btnAddRol.Icon = null;
+            btnAddRol.Location = new Point(662, 25);
+            btnAddRol.Margin = new Padding(4, 6, 4, 6);
+            btnAddRol.MouseState = MaterialSkin.MouseState.HOVER;
+            btnAddRol.Name = "btnAddRol";
+            btnAddRol.NoAccentTextColor = Color.Empty;
+            btnAddRol.Size = new Size(88, 36);
+            btnAddRol.TabIndex = 7;
+            btnAddRol.Text = "Agregar";
+            btnAddRol.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAddRol.UseAccentColor = false;
+            btnAddRol.UseVisualStyleBackColor = true;
+            btnAddRol.Click += btnAddRol_Click;
             // 
             // materialLabel2
             // 
@@ -142,31 +153,6 @@
             materialLabel2.TabIndex = 0;
             materialLabel2.Text = "     ";
             // 
-            // txtDetails
-            // 
-            txtDetails.AnimateReadOnly = false;
-            txtDetails.BackgroundImageLayout = ImageLayout.None;
-            txtDetails.CharacterCasing = CharacterCasing.Normal;
-            txtDetails.Depth = 0;
-            txtDetails.HideSelection = true;
-            txtDetails.Hint = "Detalles Adicionales";
-            txtDetails.Location = new Point(311, 13);
-            txtDetails.MaxLength = 32767;
-            txtDetails.MouseState = MaterialSkin.MouseState.OUT;
-            txtDetails.Name = "txtDetails";
-            txtDetails.PasswordChar = '\0';
-            txtDetails.ReadOnly = false;
-            txtDetails.ScrollBars = ScrollBars.None;
-            txtDetails.SelectedText = "";
-            txtDetails.SelectionLength = 0;
-            txtDetails.SelectionStart = 0;
-            txtDetails.ShortcutsEnabled = true;
-            txtDetails.Size = new Size(250, 156);
-            txtDetails.TabIndex = 10;
-            txtDetails.TabStop = false;
-            txtDetails.TextAlign = HorizontalAlignment.Left;
-            txtDetails.UseSystemPasswordChar = false;
-            // 
             // FrmRoles
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -178,8 +164,10 @@
             Name = "FrmRoles";
             Padding = new Padding(3, 0, 3, 3);
             Text = "FrmRoles";
+            Load += FrmRoles_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,9 +177,9 @@
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private GroupBox groupBox1;
-        private MaterialSkin.Controls.MaterialTextBox2 txtCatName;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialTextBox2 txtRolName;
+        private MaterialSkin.Controls.MaterialButton btnAddRol;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtDetails;
+        private DataGridView dgvClientList;
     }
 }

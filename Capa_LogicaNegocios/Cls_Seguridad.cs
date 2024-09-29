@@ -82,5 +82,24 @@ namespace Capa_LogicaNegocios
             }
             return mensaje;
         }
+        public bool UsuarioExiste(string usuario)
+        {
+            try
+            {
+                string query = "SELECT COUNT(*) FROM TBLSEGURIDAD WHERE StrUsuario = @usuario";
+                var parametros = new List<Cls_parametros>
+                {
+                    new Cls_parametros("@usuario", usuario)
+                };
+
+                DataTable result = AccesoDatos.EjecutarConsulta(query, parametros);
+                int count = Convert.ToInt32(result.Rows[0][0]);
+                return count > 0; // Retorna true si el usuario existe
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al verificar si el usuario existe: {ex.Message}");
+            }
+        }
     }
 }

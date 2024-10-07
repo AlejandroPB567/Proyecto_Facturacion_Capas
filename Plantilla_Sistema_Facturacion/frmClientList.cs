@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml;
+using Capa_LogicaNegocios;
 using MaterialSkin;
 using MaterialSkin.Controls;
-using Newtonsoft.Json;
+
 
 
 namespace Plantilla_Sistema_Facturacion
 {
     public partial class frmClient : MaterialForm
     {
-        private const string filePath = "Data/clientes.json";
+        private int IdActual;
         public frmClient()
         {
             InitializeComponent();
@@ -32,169 +27,105 @@ namespace Plantilla_Sistema_Facturacion
 
         private void CargarDatos()
         {
-
             try
             {
-                // Verificar si el archivo existe
-                if (File.Exists(filePath))
+                Cls_Clientes clientes = new Cls_Clientes();
+                DataTable dt = clientes.TablaClientes();
+
+                // Asignar el DataTable al DataGridView
+                dgvClientList.DataSource = dt;
+
+                // Añadir columnas de botones si no existen
+                if (!dgvClientList.Columns.Contains("colModificar") && !dgvClientList.Columns.Contains("colEliminar"))
                 {
-                    // Leer datos desde el archivo JSON
-                    var clientes = ObtenerClientes();
-
-                    dgvClientList.DataSource = clientes;
-
-                    // Agregar columnas de acción al DataGridView
-                    var btnModificar = new DataGridViewButtonColumn
-                    {
-                        Name = "Modificar",
-                        Text = "Modificar",
-                        UseColumnTextForButtonValue = true
-                    };
-                    var btnEliminar = new DataGridViewButtonColumn
-                    {
-                        Name = "Eliminar",
-                        Text = "Eliminar",
-                        UseColumnTextForButtonValue = true
-                    };
-
-                    if (!dgvClientList.Columns.Contains("Modificar"))
-                        dgvClientList.Columns.Add(btnModificar);
-                    if (!dgvClientList.Columns.Contains("Eliminar"))
-                        dgvClientList.Columns.Add(btnEliminar);
-
-                    dgvClientList.Columns["IDCliente"].ReadOnly = true;
+                    AgregarColumnasBotones();
                 }
-                else
-                {
-                    // Lanzar una excepción si el archivo no se encuentra
-                    throw new FileNotFoundException("El archivo de datos no se encuentra.");
-                }
-            }
-            catch (FileNotFoundException ex)
-            {
-                // Mostrar un mensaje de error al usuario
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                // Manejar otras posibles excepciones
-                MessageBox.Show($"Ocurrió un error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar los empleados: " + ex.Message);
             }
+
+        }
+        private void AgregarColumnasBotones()
+        {
+            // Columna de botón Modificar
+            DataGridViewButtonColumn colModificar = new DataGridViewButtonColumn();
+            colModificar.Name = "colModificar";
+            colModificar.HeaderText = "Modificar";
+            colModificar.Text = "Modificar";
+            colModificar.UseColumnTextForButtonValue = true;
+            colModificar.Width = 80;
+
+            // Columna de botón Eliminar
+            DataGridViewButtonColumn colEliminar = new DataGridViewButtonColumn();
+            colEliminar.Name = "colEliminar";
+            colEliminar.HeaderText = "Eliminar";
+            colEliminar.Text = "Eliminar";
+            colEliminar.UseColumnTextForButtonValue = true;
+            colEliminar.Width = 80;
+
+            // Añadir las columnas al DataGridView
+            dgvClientList.Columns.Add(colModificar);
+            dgvClientList.Columns.Add(colEliminar);
         }
 
         private void dgvClientList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            // Instancia de la clase Cls_Empleados
+            Cls_Clientes clientes = new Cls_Clientes();
+
+            // Verifica si el clic es en la columna de Modificar
+            if (e.ColumnIndex == dgvClientList.Columns["colModificar"].Index && e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == dgvClientList.Columns["Modificar"].Index && e.RowIndex >= 0)
+                // Obtener datos de la fila seleccionada
+                DataGridViewRow filaSeleccionada = dgvClientList.Rows[e.RowIndex];
+                LlenarCamposDesdeFila(filaSeleccionada);
+
+                // Ajustar visibilidad de los botones
+                btnCreateClient.Visible = false;
+                btnModificar.Visible = true;
+                btnCancelar.Visible = true;
+                btnClear.Visible = false;
+            }
+            else if (e.ColumnIndex == dgvClientList.Columns["colEliminar"].Index && e.RowIndex >= 0)
+            {
+                // Confirmar eliminación
+                DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este cliente?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
                 {
-                    // Lógica para modificar el cliente
-                    var cliente = (Cliente)dgvClientList.Rows[e.RowIndex].DataBoundItem;
-                    // Implementar lógica de modificación aquí
-                    var resultado = MessageBox.Show("¿Estás seguro de que deseas guardar los cambios?", "Confirmar Modificación", MessageBoxButtons.YesNo);
-                    if (resultado == DialogResult.Yes)
+                    try
                     {
-                        // Actualizar los datos del cliente
-                        ModificarCliente(cliente);
-                        MessageBox.Show("Cliente modificado correctamente.");
+                        // Obtener el IdEmpleado de la fila seleccionada
+                        int idCliente = Convert.ToInt32(dgvClientList.Rows[e.RowIndex].Cells["IdCliente"].Value);
+
+                        // Llamar al método para eliminar el empleado
+                        clientes.IdCliente = idCliente; // Asigna el IdEmpleado a la instancia
+                        string mensaje = clientes.EliminarCliente();
+
+                        // Mostrar el mensaje de resultado y recargar la lista de empleados
+                        MessageBox.Show(mensaje);
+                        CargarDatos(); // Recarga la lista después de eliminar
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        // Recargar los datos en el DataGridView si se cancela
-                        CargarDatos();
+                        MessageBox.Show("Error al eliminar el cliente: " + ex.Message);
                     }
                 }
-                else if (e.ColumnIndex == dgvClientList.Columns["Eliminar"].Index)
-                {
-                    // Confirmar eliminación
-                    var resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar este cliente?", "Confirmar Eliminación", MessageBoxButtons.YesNo);
-                    if (resultado == DialogResult.Yes)
-                    {
-                        // Eliminar el cliente
-                        var cliente = (Cliente)dgvClientList.Rows[e.RowIndex].DataBoundItem;
-                        //EliminarCliente(cliente);
-                        MessageBox.Show("se borro el cliente (la funcion de eliminar del archivo esta desactivada)");
-                    }
-                }
             }
         }
-
-        private void EliminarCliente(Cliente cliente)
+        private void LlenarCamposDesdeFila(DataGridViewRow fila)
         {
-            // Leer datos desde el archivo JSON
-            var clientes = ObtenerClientes();
+            IdActual = (int)fila.Cells["IdCliente"].Value;
+            txtClientName.Text = fila.Cells["StrNombre"].Value.ToString();
+            txtClientId.Text = fila.Cells["NumDocumento"].Value.ToString();
+            txtAddress.Text = fila.Cells["StrDireccion"].Value.ToString();
+            txtTelNum.Text = fila.Cells["StrTelefono"].Value.ToString();
+            txtEmail.Text = fila.Cells["StrEmail"].Value.ToString();
 
-            // Eliminar el cliente de la lista
-            var clienteAEliminar = clientes.FirstOrDefault(c => c.IDCliente == cliente.IDCliente);
-            if (clienteAEliminar != null)
-            {
-                clientes.Remove(clienteAEliminar);
-
-                // Guardar los datos actualizados en el archivo JSON
-                GuardarDatos(clientes);
-
-                // Recargar los datos en el DataGridView
-                CargarDatos();
-            }
         }
 
-        private void ModificarCliente(Cliente cliente)
-        {
-            // Leer datos desde el archivo JSON
 
-            var clientes = ObtenerClientes();
-
-            // Encontrar el cliente a modificar
-            var clienteAModificar = clientes.FirstOrDefault(c => c.IDCliente == cliente.IDCliente);
-            if (clienteAModificar != null)
-            {
-                // Actualizar los datos del cliente
-                clienteAModificar.Nombre = cliente.Nombre;
-                clienteAModificar.DocumentoIdentidad = cliente.DocumentoIdentidad;
-                clienteAModificar.Direccion = cliente.Direccion;
-                clienteAModificar.Telefono = cliente.Telefono;
-                clienteAModificar.Email = cliente.Email;
-
-                // Guardar los datos actualizados en el archivo JSON
-                GuardarDatos(clientes);
-
-                // Recargar los datos en el DataGridView
-                CargarDatos();
-            }
-        }
-
-        private void GuardarDatos(List<Cliente> clientes)
-        {
-            try
-            {
-                // Convertir la lista de clientes a JSON
-                var nuevoJson = JsonConvert.SerializeObject(clientes, Newtonsoft.Json.Formatting.Indented);
-
-                // Escribir el JSON en el archivo
-                File.WriteAllText(filePath, nuevoJson);
-            }
-            catch (Exception ex)
-            {
-                // Manejar excepciones (por ejemplo, mostrar un mensaje de error)
-                MessageBox.Show($"Error al guardar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private List<Cliente> ObtenerClientes()
-        {
-            try
-            {
-                // Leer datos desde el archivo JSON
-                var json = File.ReadAllText(filePath);
-                // Deserializar el JSON a una lista de clientes
-                return JsonConvert.DeserializeObject<List<Cliente>>(json) ?? new List<Cliente>();
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores: mostrar mensaje o loguear el error
-                MessageBox.Show($"Error al leer el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return new List<Cliente>();
-            }
-        }
         private void LimpiarCampos()
         {
             txtClientName.Clear();
@@ -202,56 +133,46 @@ namespace Plantilla_Sistema_Facturacion
             txtAddress.Clear();
             txtTelNum.Clear();
             txtEmail.Clear();
-        }
-        private int ObtenerSiguienteID(List<Cliente> clientes)
-        {
-            // Si la lista está vacía, el próximo ID es 1
-            if (clientes.Count == 0)
-            {
-                return 1;
-            }
 
-            // Obtener el ID máximo y sumar 1
-            return clientes.Max(c => c.IDCliente) + 1;
+            btnCreateClient.Visible = true;
+            btnModificar.Visible = false;
+            btnCancelar.Visible = false;
         }
 
         private void btnCreateClient_Click(object sender, EventArgs e)
         {
             // Leer datos desde el archivo JSON
-            var clientes = ObtenerClientes();
-
-            // Validar campos obligatorios
             if (string.IsNullOrWhiteSpace(txtClientName.Text) || string.IsNullOrWhiteSpace(txtClientId.Text))
             {
-                MessageBox.Show("El nombre y el documento de identidad son obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, complete todos los campos obligatorios (Nombre, Documento).");
                 return;
             }
 
-            // Crear nuevo cliente
-            var nuevoCliente = new Cliente
+            try
             {
-                IDCliente = ObtenerSiguienteID(clientes),
-                Nombre = txtClientName.Text.Trim(),
-                DocumentoIdentidad = txtClientId.Text.Trim(),
-                Direccion = txtAddress.Text.Trim(),
-                Telefono = txtTelNum.Text.Trim(),
-                Email = txtEmail.Text.Trim()
-            };
+                // Instancia de la clase Cls_Empleados y asignación de valores desde los campos
+                Cls_Clientes clientes = new Cls_Clientes()
+                {
+                    StrNombre = txtClientName.Text,
+                    NumDocumento = Convert.ToDouble(txtClientId.Text),
+                    StrDireccion = txtAddress.Text,
+                    StrTelefono = txtTelNum.Text,
+                    StrEmail = txtEmail.Text,
+                    StrUsuarioModifico = UsuarioAutenticado.Usuario // Asigna el usuario actual
+                };
 
-            // Agregar el nuevo cliente a la lista
-            clientes.Add(nuevoCliente);
+                // Llamar al método de agregar
+                string mensaje = clientes.ActualizarCliente(); // Esto ejecutará el insert si no existe
+                MessageBox.Show(mensaje);
 
-            // Guardar los datos actualizados en el archivo JSON
-            GuardarDatos(clientes);
-
-            // Limpiar campos
-            LimpiarCampos();
-
-            // Opcional: Actualizar el DataGridView si está presente en el formulario
-            CargarDatos();
-
-            // Confirmación
-            MessageBox.Show("Cliente creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Recargar los empleados y limpiar los campos
+                CargarDatos();
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar el cliente: " + ex.Message);
+            }
         }
 
         private void btnRecharge_Click(object sender, EventArgs e)
@@ -266,38 +187,72 @@ namespace Plantilla_Sistema_Facturacion
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchText = txtFindClient.Text.Trim().ToLower();
-            var clientesFiltrados = BuscarClientes(searchText);
-            dgvClientList.DataSource = clientesFiltrados;
-        }
-        private List<Cliente> BuscarClientes(string searchText)
-        {
-            var clientes = ObtenerClientes();
-
-            if (string.IsNullOrEmpty(searchText))
+            try
             {
-                // Si el texto está vacío, devolver todos los clientes
-                return clientes;
-            }
+                Cls_Clientes clientes = new Cls_Clientes();
+                string filtro = txtFindClient.Text.Trim();
 
-            // Filtrar la lista de clientes
-            return clientes.Where(c =>
-                c.IDCliente.ToString().Contains(searchText) ||
-                c.Nombre.ToLower().Contains(searchText) ||
-                c.DocumentoIdentidad.ToLower().Contains(searchText)).ToList();
+                if (!string.IsNullOrWhiteSpace(filtro))
+                {
+                    DataTable dt = clientes.FiltrarCliente(filtro);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dgvClientList.DataSource = dt;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron empleados con ese criterio de búsqueda.");
+                        CargarDatos(); // Recargar la lista completa si no hay resultados
+                    }
+                }
+                else
+                {
+                    CargarDatos(); // Recargar la lista completa si el filtro está vacío
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar clientes: " + ex.Message);
+            }
         }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Crear la instancia de la clase Cls_Empleados con los datos de los campos del formulario
+                Cls_Clientes clientes = new Cls_Clientes()
+                {
+                    IdCliente = IdActual,
+                    StrNombre = txtClientName.Text,
+                    NumDocumento = Convert.ToDouble(txtClientId.Text),
+                    StrDireccion = txtAddress.Text,
+                    StrTelefono = txtTelNum.Text,
+                    StrEmail = txtEmail.Text,
+                    StrUsuarioModifico = UsuarioAutenticado.Usuario // Asigna el usuario actual
+                };
 
+                // Llamar al método de actualización
+                string mensaje = clientes.ActualizarCliente();
+                MessageBox.Show(mensaje);
+
+                // Recargar la lista de empleados y limpiar los campos
+                CargarDatos();
+                LimpiarCampos();
+                btnClear.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el cliente: " + ex.Message);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            btnClear.Visible = true;
+        }
     }
 
-    public class Cliente
-    {
-        public int IDCliente { get; set; }
-        public string Nombre { get; set; }
-        public string DocumentoIdentidad { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-    }
 }
 

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnCancelar = new MaterialSkin.Controls.MaterialButton();
+            btnModificar = new MaterialSkin.Controls.MaterialButton();
             btnExit = new MaterialSkin.Controls.MaterialButton();
             btnClear = new MaterialSkin.Controls.MaterialButton();
             txtClientName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -50,6 +52,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnCancelar);
+            groupBox1.Controls.Add(btnModificar);
             groupBox1.Controls.Add(btnExit);
             groupBox1.Controls.Add(btnClear);
             groupBox1.Controls.Add(txtClientName);
@@ -63,6 +67,52 @@
             groupBox1.Size = new Size(785, 332);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.AutoSize = false;
+            btnCancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCancelar.Depth = 0;
+            btnCancelar.ForeColor = SystemColors.ControlDark;
+            btnCancelar.HighEmphasis = true;
+            btnCancelar.Icon = null;
+            btnCancelar.Location = new Point(602, 192);
+            btnCancelar.Margin = new Padding(4, 6, 4, 6);
+            btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.NoAccentTextColor = Color.Empty;
+            btnCancelar.Size = new Size(97, 36);
+            btnCancelar.TabIndex = 8;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCancelar.UseAccentColor = false;
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Visible = false;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // btnModificar
+            // 
+            btnModificar.AutoSize = false;
+            btnModificar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnModificar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnModificar.Depth = 0;
+            btnModificar.ForeColor = SystemColors.ControlDark;
+            btnModificar.HighEmphasis = true;
+            btnModificar.Icon = null;
+            btnModificar.Location = new Point(602, 128);
+            btnModificar.Margin = new Padding(4, 6, 4, 6);
+            btnModificar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnModificar.Name = "btnModificar";
+            btnModificar.NoAccentTextColor = Color.Empty;
+            btnModificar.Size = new Size(97, 36);
+            btnModificar.TabIndex = 7;
+            btnModificar.Text = "MODIFICAR";
+            btnModificar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnModificar.UseAccentColor = false;
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Visible = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnExit
             // 
@@ -415,5 +465,7 @@
         private MaterialSkin.Controls.MaterialButton btnExit;
         private MaterialSkin.Controls.MaterialButton btnRecharge;
         private MaterialSkin.Controls.MaterialButton btnClear;
+        private MaterialSkin.Controls.MaterialButton btnCancelar;
+        private MaterialSkin.Controls.MaterialButton btnModificar;
     }
 }

@@ -36,11 +36,14 @@
             txtStockAmount = new MaterialSkin.Controls.MaterialTextBox2();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             groupBox1 = new GroupBox();
-            materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            btnLimpiar = new MaterialSkin.Controls.MaterialButton();
+            btnCancelar = new MaterialSkin.Controls.MaterialButton();
+            btnModificar = new MaterialSkin.Controls.MaterialButton();
+            btnSalir = new MaterialSkin.Controls.MaterialButton();
+            btnAgregar = new MaterialSkin.Controls.MaterialButton();
             txtDetails = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            cbCategoria = new MaterialSkin.Controls.MaterialComboBox();
             groupBox2 = new GroupBox();
             btnRecharge = new MaterialSkin.Controls.MaterialButton();
             btnSearch = new MaterialSkin.Controls.MaterialButton();
@@ -239,11 +242,14 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(materialButton2);
-            groupBox1.Controls.Add(materialButton1);
+            groupBox1.Controls.Add(btnLimpiar);
+            groupBox1.Controls.Add(btnCancelar);
+            groupBox1.Controls.Add(btnModificar);
+            groupBox1.Controls.Add(btnSalir);
+            groupBox1.Controls.Add(btnAgregar);
             groupBox1.Controls.Add(txtDetails);
             groupBox1.Controls.Add(materialLabel2);
-            groupBox1.Controls.Add(materialComboBox1);
+            groupBox1.Controls.Add(cbCategoria);
             groupBox1.Controls.Add(txtProductName);
             groupBox1.Controls.Add(txtProductCode);
             groupBox1.Controls.Add(txtLinkPic);
@@ -256,43 +262,111 @@
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             // 
-            // materialButton2
+            // btnLimpiar
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.Location = new Point(640, 233);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(64, 36);
-            materialButton2.TabIndex = 10;
-            materialButton2.Text = "Salir";
-            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            btnLimpiar.AutoSize = false;
+            btnLimpiar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnLimpiar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnLimpiar.Depth = 0;
+            btnLimpiar.HighEmphasis = true;
+            btnLimpiar.Icon = null;
+            btnLimpiar.Location = new Point(640, 71);
+            btnLimpiar.Margin = new Padding(4, 6, 4, 6);
+            btnLimpiar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.NoAccentTextColor = Color.Empty;
+            btnLimpiar.Size = new Size(88, 36);
+            btnLimpiar.TabIndex = 13;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnLimpiar.UseAccentColor = false;
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // materialButton1
+            // btnCancelar
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(640, 23);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(88, 36);
-            materialButton1.TabIndex = 6;
-            materialButton1.Text = "Agregar";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            btnCancelar.AutoSize = false;
+            btnCancelar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnCancelar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnCancelar.Depth = 0;
+            btnCancelar.HighEmphasis = true;
+            btnCancelar.Icon = null;
+            btnCancelar.Location = new Point(640, 159);
+            btnCancelar.Margin = new Padding(4, 6, 4, 6);
+            btnCancelar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.NoAccentTextColor = Color.Empty;
+            btnCancelar.Size = new Size(88, 36);
+            btnCancelar.TabIndex = 12;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnCancelar.UseAccentColor = false;
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Visible = false;
+            btnCancelar.Click += btnCancelar_Click_1;
+            // 
+            // btnModificar
+            // 
+            btnModificar.AutoSize = false;
+            btnModificar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnModificar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnModificar.Depth = 0;
+            btnModificar.HighEmphasis = true;
+            btnModificar.Icon = null;
+            btnModificar.Location = new Point(640, 111);
+            btnModificar.Margin = new Padding(4, 6, 4, 6);
+            btnModificar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnModificar.Name = "btnModificar";
+            btnModificar.NoAccentTextColor = Color.Empty;
+            btnModificar.Size = new Size(88, 36);
+            btnModificar.TabIndex = 11;
+            btnModificar.Text = "MODIFICAR";
+            btnModificar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnModificar.UseAccentColor = false;
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Visible = false;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnSalir.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnSalir.Depth = 0;
+            btnSalir.HighEmphasis = true;
+            btnSalir.Icon = null;
+            btnSalir.Location = new Point(640, 233);
+            btnSalir.Margin = new Padding(4, 6, 4, 6);
+            btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
+            btnSalir.Name = "btnSalir";
+            btnSalir.NoAccentTextColor = Color.Empty;
+            btnSalir.Size = new Size(64, 36);
+            btnSalir.TabIndex = 10;
+            btnSalir.Text = "Salir";
+            btnSalir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnSalir.UseAccentColor = false;
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.AutoSize = false;
+            btnAgregar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnAgregar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAgregar.Depth = 0;
+            btnAgregar.HighEmphasis = true;
+            btnAgregar.Icon = null;
+            btnAgregar.Location = new Point(640, 23);
+            btnAgregar.Margin = new Padding(4, 6, 4, 6);
+            btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.NoAccentTextColor = Color.Empty;
+            btnAgregar.Size = new Size(88, 36);
+            btnAgregar.TabIndex = 6;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAgregar.UseAccentColor = false;
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // txtDetails
             // 
@@ -331,27 +405,27 @@
             materialLabel2.TabIndex = 8;
             materialLabel2.Text = "Categoria";
             // 
-            // materialComboBox1
+            // cbCategoria
             // 
-            materialComboBox1.AutoResize = false;
-            materialComboBox1.BackColor = Color.FromArgb(255, 255, 255);
-            materialComboBox1.Depth = 0;
-            materialComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
-            materialComboBox1.DropDownHeight = 174;
-            materialComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            materialComboBox1.DropDownWidth = 121;
-            materialComboBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            materialComboBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialComboBox1.FormattingEnabled = true;
-            materialComboBox1.IntegralHeight = false;
-            materialComboBox1.ItemHeight = 43;
-            materialComboBox1.Location = new Point(418, 22);
-            materialComboBox1.MaxDropDownItems = 4;
-            materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(175, 49);
-            materialComboBox1.StartIndex = 0;
-            materialComboBox1.TabIndex = 6;
+            cbCategoria.AutoResize = false;
+            cbCategoria.BackColor = Color.FromArgb(255, 255, 255);
+            cbCategoria.Depth = 0;
+            cbCategoria.DrawMode = DrawMode.OwnerDrawVariable;
+            cbCategoria.DropDownHeight = 174;
+            cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategoria.DropDownWidth = 121;
+            cbCategoria.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbCategoria.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbCategoria.FormattingEnabled = true;
+            cbCategoria.IntegralHeight = false;
+            cbCategoria.ItemHeight = 43;
+            cbCategoria.Location = new Point(418, 22);
+            cbCategoria.MaxDropDownItems = 4;
+            cbCategoria.MouseState = MaterialSkin.MouseState.OUT;
+            cbCategoria.Name = "cbCategoria";
+            cbCategoria.Size = new Size(175, 49);
+            cbCategoria.StartIndex = 0;
+            cbCategoria.TabIndex = 6;
             // 
             // groupBox2
             // 
@@ -383,6 +457,7 @@
             btnRecharge.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnRecharge.UseAccentColor = false;
             btnRecharge.UseVisualStyleBackColor = true;
+            btnRecharge.Click += btnRecharge_Click;
             // 
             // btnSearch
             // 
@@ -402,6 +477,7 @@
             btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnSearch.UseAccentColor = false;
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dgvProductsList
             // 
@@ -473,14 +549,17 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialComboBox cbCategoria;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtDetails;
         private GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialButton btnRecharge;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private DataGridView dgvProductsList;
         private MaterialSkin.Controls.MaterialTextBox2 txtFindProduct;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btnSalir;
+        private MaterialSkin.Controls.MaterialButton btnAgregar;
+        private MaterialSkin.Controls.MaterialButton btnLimpiar;
+        private MaterialSkin.Controls.MaterialButton btnCancelar;
+        private MaterialSkin.Controls.MaterialButton btnModificar;
     }
 }
